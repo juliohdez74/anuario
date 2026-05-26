@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anuario Virtual</title>
+    <!-- Cargamos la librería Turn.js y jQuery para el efecto de hojas -->
+    <script src="https://jquery.com"></script>
+    <script src="https://cloudflare.com"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="instrucciones">Haz clic en las esquinas o arrastra para pasar las hojas</div>
+
+    <div id="anuario">
+        <!-- Portada del Anuario -->
+        <div class="pagina portada">
+            <h1>Anuario Escolar<br>Graduados</h1>
+        </div>
+
+        <!-- Las páginas de los alumnos se generarán aquí automáticamente con JavaScript -->
+
+        <!-- Contraportada / Cierre -->
+        <div class="pagina contraportada">
+            <h2>¡Éxito en el futuro!</h2>
+        </div>
+    </div>
+
+    <script>
+        // CONFIGURACIÓN: Cambia este número por el total de fotos de alumnos que tienes
+        const TOTAL_ALUMNOS = 10; 
+
+        const anuario = document.getElementById('anuario');
+        const contraportada = document.querySelector('.contraportada');
+
+        // Este bucle genera las páginas automáticamente buscando "alumno1.jpg", "alumno2.jpg", etc.
+        for (let i = 1; i <= TOTAL_ALUMNOS; i++) {
+            const nuevaPagina = document.createElement('div');
+            nuevaPagina.className = 'pagina';
+            nuevaPagina.innerHTML = `
+                <div class="contenedor-foto">
+                    <img src="fotos/alumno${i}.jpg" alt="Graduado ${i}" onerror="this.src='fotos/placeholder.jpg'">
+                </div>
+                <p class="pie-foto">Graduado #${i}</p>
+            `;
+            // Inserta las páginas antes de la contraportada
+            anuario.insertBefore(nuevaPagina, contraportada);
+        }
+
+        // Inicia el efecto de libro de Turn.js una vez creadas las páginas
+        $(document).ready(function() {
+            $('#anuario').turn({
+                width: 800,
+                height: 500,
+                autoCenter: true,
+                gradients: true
+            });
+        });
+    </script>
+</body>
+</html>

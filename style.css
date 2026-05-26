@@ -1,0 +1,67 @@
+body {
+    background-color: #f0f2f5;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.instrucciones {
+    margin-bottom: 20px;
+    color: #666;
+    font-size: 14px;
+}
+
+#anuario {
+    box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+}
+
+.pagina {
+    background-color: white;
+    box-sizing: border-box;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #ddd;
+}
+
+.portada {
+    background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+    color: white;
+    text-align: center;
+}
+
+.contraportada {
+    background: #2a5298;
+    color: white;
+    text-align: center;
+}
+
+.contenedor-foto {
+    width: 80%;
+    height: 70%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.contenedor-foto img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.pie-foto {
+    margin-top: 20px;
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+}
